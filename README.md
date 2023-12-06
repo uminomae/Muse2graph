@@ -4,7 +4,7 @@
 - macのダウンロードディレクトリにある.zipファイルからグラフを作成します。
 - 直近60分間のデータからグラフを作成します。※60分未満の場合でも出力できます。
 - 移動平均線は直近5つのデータポイントとの平均です。
-<img width="900" alt="mindMonitor_2023-12-03--22-22-3" src="https://github.com/uminomae/Muse2graph/assets/101631407/ed6034ab-c33a-484f-b6a1-78859f2832ad">
+<img width="900" alt="mindMonitor_2023-12-03--22-22-3" src="https://github.com/uminomae/Muse2graph/assets/101631407/beb5b687-6a10-4f8b-b6c8-3c36a688bc81">
 
 # 使い方：
 ## 事前準備
