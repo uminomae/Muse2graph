@@ -39,3 +39,6 @@
 例  下記のような出力の後、カレントディレクトリのsaved_plotsディレクトリにグラフが保存され、同時にディスプレイに画像が表示されます。  
 
 <img width="2091" alt="スクリーンショット 2023-12-06 9 27 32" src="https://github.com/uminomae/Muse2graph/assets/101631407/915766f5-104f-4718-ade2-fbfb0bffd4a4">
+
+参考:【Muse2（BMI）で脳波を測ってみた！ | TECH | NRI Digital】 https://www.nri-digital.jp/tech/20211228-7840/  
+参考:【Mind Monitor】 https://mind-monitor.com/Chart.php
