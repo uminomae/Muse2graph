@@ -18,7 +18,7 @@
 1. Muse2使用時に、Mind Monitorアプリを使用してDropboxに転送（標準機能）してください。
 <img width="200" alt="スクリーンショット 2023-12-06 10 29 47" src="https://github.com/uminomae/Muse2graph/assets/101631407/63cd19f5-c4ba-4cff-8430-10354c2c3462">
 
-1. Dropboxから計測データ(zip)をダウンロードディレクトリにダウンロードしてください。  
+1. 記録を終えたら、Dropboxから計測データ(zip)をダウンロードディレクトリにダウンロードしてください。  
 <img width="300" alt="スクリーンショット 2023-12-06 9 10 12" src="https://github.com/uminomae/Muse2graph/assets/101631407/dd0114c0-6a35-40c6-9cfb-84a5210bb1aa">  
 
 ## ターミナルでのbashによる操作
