@@ -4,7 +4,7 @@
 - macのダウンロードディレクトリにある.zipファイルからグラフを作成します。
 - 直近60分間のデータからグラフを作成します。※60分未満の場合でも出力できます。
 - 移動平均線は直近5つのデータポイントとの平均です。
-![mindMonitor_2023-12-03--22-22-39](https://github.com/uminomae/Muse2graph/assets/101631407/ed6034ab-c33a-484f-b6a1-78859f2832ad)
+<img width="900" alt="mindMonitor_2023-12-03--22-22-3" src="https://github.com/uminomae/Muse2graph/assets/101631407/ed6034ab-c33a-484f-b6a1-78859f2832ad">
 
 # 使い方：
 ## 事前準備
@@ -16,8 +16,10 @@
 
 ## Muse2,Mind Monitor,Dropbox
 1. Muse2使用時に、Mind Monitorアプリを使用してDropboxに転送（標準機能）してください。
+<img width="200" alt="スクリーンショット 2023-12-06 10 29 47" src="https://github.com/uminomae/Muse2graph/assets/101631407/63cd19f5-c4ba-4cff-8430-10354c2c3462">
+
 1. Dropboxから計測データ(zip)をダウンロードディレクトリにダウンロードしてください。  
-<img width="400" alt="スクリーンショット 2023-12-06 9 10 12" src="https://github.com/uminomae/Muse2graph/assets/101631407/dd0114c0-6a35-40c6-9cfb-84a5210bb1aa">  
+<img width="300" alt="スクリーンショット 2023-12-06 9 10 12" src="https://github.com/uminomae/Muse2graph/assets/101631407/dd0114c0-6a35-40c6-9cfb-84a5210bb1aa">  
 
 ## ターミナルでのbashによる操作
 1. ターミナル上で、muse2analysis.shを保存したディレクトリに移動してください  
