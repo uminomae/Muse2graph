@@ -68,7 +68,20 @@ recent_60min_numeric['Average_Gamma']  = recent_60min_numeric[['Gamma_TP9', 'Gam
 
 # リサンプリング
 resampled_recent_data = recent_60min_numeric.resample('10S').mean()
-resampled_recent_data['Elapsed_Minutes'] = (resampled_recent_data.index - start_time_60min).total_seconds() / 60
+
+# データフレームの各行を反復処理し、有効なデータがある最初の行を見つける
+valid_start_time = None
+for timestamp, row in resampled_recent_data.iterrows():
+    if not row.isna().all():  # 行に少なくとも1つの有効なデータがある場合
+        valid_start_time = timestamp
+        break
+
+# 有効な開始日時が見つかった場合
+# if valid_start_time is not None:
+    # x軸の値を開始時刻からの経過時間に設定
+resampled_recent_data['Elapsed_Minutes'] = (resampled_recent_data.index - valid_start_time).total_seconds() / 60
+# else:
+#     print("有効な開始日時が見つかりませんでした。")
 
 # 各波形の移動平均を計算
 window_size = 6
@@ -91,28 +104,31 @@ plt.plot(resampled_recent_data['Elapsed_Minutes'], resampled_recent_data['Rollin
 plt.plot(resampled_recent_data['Elapsed_Minutes'], resampled_recent_data['Rolling_Avg_Beta'], label='Rolling Avg Beta', color='darkgreen', linewidth=2)
 plt.plot(resampled_recent_data['Elapsed_Minutes'], resampled_recent_data['Rolling_Avg_Gamma'], label='Rolling Avg Gamma', color='olive', linewidth=2)
 
-# データフレームの各行を反復処理し、有効なデータがある最初の行を見つける
-valid_start_time = None
-for timestamp, row in recent_60min_data.iterrows():
-    if not row.isna().all():  # 行に少なくとも1つの有効なデータがある場合
-        valid_start_time = timestamp
-        break
 
+time_difference = end_time - valid_start_time
+
+# 時間差を分単位で表示（四捨五入）
+total_minutes = round(time_difference.total_seconds() / 60)
+
+# グラフに開始日時、終了日時、および時間差を表示
+plt.text(x=0.01, y=0.01, 
+        s=f"開始日時: {valid_start_time.strftime('%Y-%m-%d %H:%M:%S')}\n終了日時: {end_time.strftime('%Y-%m-%d %H:%M:%S')}\n合計時間: {total_minutes}分",
+        transform=plt.gca().transAxes, fontsize=9, verticalalignment='bottom')
 # 有効な開始日時が見つかった場合、グラフに表示
-if valid_start_time is not None:
+# if valid_start_time is not None:
     # 開始日時と終了日時の差を計算
-    time_difference = end_time - valid_start_time
+    # time_difference = end_time - valid_start_time
 
-    # 時間差を分単位で表示（四捨五入）
-    total_minutes = round(time_difference.total_seconds() / 60)
+    # # 時間差を分単位で表示（四捨五入）
+    # total_minutes = round(time_difference.total_seconds() / 60)
 
-    # グラフに開始日時、終了日時、および時間差を表示
-    plt.text(x=0.01, y=0.01, 
-            s=f"開始日時: {valid_start_time.strftime('%Y-%m-%d %H:%M:%S')}\n終了日時: {end_time.strftime('%Y-%m-%d %H:%M:%S')}\n合計時間: {total_minutes}分",
-            transform=plt.gca().transAxes, fontsize=9, verticalalignment='bottom')
+    # # グラフに開始日時、終了日時、および時間差を表示
+    # plt.text(x=0.01, y=0.01, 
+    #         s=f"開始日時: {valid_start_time.strftime('%Y-%m-%d %H:%M:%S')}\n終了日時: {end_time.strftime('%Y-%m-%d %H:%M:%S')}\n合計時間: {total_minutes}分",
+    #         transform=plt.gca().transAxes, fontsize=9, verticalalignment='bottom')
 
-else:
-    print("有効な開始日時が見つかりませんでした。")
+# else:
+#     print("有効な開始日時が見つかりませんでした。")
 
 # グラフの設定
 plt.title(graph_title)
